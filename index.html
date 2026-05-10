@@ -32,13 +32,13 @@
 <body>
     <header>
         <h1>野山</h1>
-        <p class="description">ブログを作った</p>
+        <p class="description">反省</p>
     </header>
     
     <main class="articles">
         {% for post in site.posts %}
         <article class="article-item">
-            <a href="{{ site.baseurl }}{{ post.url }}" class="article-title">{{ post.title }}</a>
+            <a href="/myBlog{{ post.url }}" class="article-title">{{ post.title }}</a>
             <span class="date">{{ post.date | date: "%Y,%-m,%-d %p%-I" }}</span>
         </article>
         {% endfor %}
