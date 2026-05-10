@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>野山</title>
+    <style>
+        /* ページ全体の設定：黒背景、白文字、中央揃え、フォント変更 */
+        body {
+            background-color: #111; /* 真っ黒（#000）より少しだけ明るい黒が見やすいです */
+            color: #fff;
+            text-align: center;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        /* リンクの文字色を白にして、下線を消す */
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* リンクにマウスを乗せた時だけ下線を出す */
+        a:hover {
+            text-decoration: underline;
+        }
+        /* 日付部分のスタイル */
+        .date {
+            font-size: 0.6em;
+            color: #aaa;
+            margin-left: 15px;
+            font-weight: normal;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -11,9 +38,24 @@
     </header>
     <main>
         <article>
-            <h2>一歩目</h2>
+            <h2>
+                <a href="article1.html">一歩目</a>
+                <span class="date" id="last-updated"></span>
+            </h2>
             <p>ブログを作った</p>
         </article>
     </main>
+
+    <script>
+        // GitHubにプッシュされた（Webページが生成された）時間を取得するプログラム
+        const date = new Date(document.lastModified);
+        const days = ['日', '月', '火', '水', '木', '金', '土'];
+        
+        // 分と秒を除外し「YYYY年M月D日(曜日) H時」の形式にする
+        const formattedDate = `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日(${days[date.getDay()]}) ${date.getHours()}時`;
+        
+        // HTMLのid="last-updated"の部分に文字を書き込む
+        document.getElementById('last-updated').textContent = formattedDate;
+    </script>
 </body>
 </html>
