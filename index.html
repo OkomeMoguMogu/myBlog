@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,49 +8,25 @@
     <title>野山</title>
     <style>
         body {
-            background-color: #111;
-            color: #fff;
+            background-color: #000000; /* 完全な黒 */
+            color: #ffffff; /* 完全な白 */
             text-align: center;
-            font-family: Arial, sans-serif; /* ベースのフォント */
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
         }
-        /* 野山と記事タイトルを明朝体（ゴシック以外）にする */
         h1, .article-title {
             font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
             font-weight: normal;
         }
-        h1 {
-            font-size: 4em; /* 約2倍の大きさに */
-            margin-bottom: 0; /* 下の文字との隙間を詰める */
-        }
-        .description {
-            margin-top: 5px;
-            font-size: 1.2em;
-            color: #ccc;
-        }
-        .articles {
-            margin-top: 100px; /* 一歩目をもうちょい下に下げる */
-        }
-        .article-item {
-            margin-bottom: 40px; /* 記事同士の隙間 */
-        }
-        /* ハイパーリンクらしい青色 */
-        .article-title {
-            font-size: 1.8em;
-            color: #58a6ff; 
-            text-decoration: none;
-        }
-        .article-title:hover {
-            text-decoration: underline;
-        }
-        /* 日付：一歩目の下、かつ近くに配置 */
-        .date {
-            display: block; /* リンクの下に改行して配置 */
-            margin-top: 8px; /* 一歩目との距離を近くする */
-            font-size: 0.9em;
-            color: #aaa;
-        }
+        h1 { font-size: 4em; margin-bottom: 0; }
+        .description { margin-top: 5px; font-size: 1.2em; color: #ccc; }
+        .articles { margin-top: 100px; }
+        .article-item { margin-bottom: 40px; }
+        .article-title { font-size: 1.8em; color: #58a6ff; text-decoration: none; }
+        .article-title:hover { text-decoration: underline; }
+        /* 日付のデザイン */
+        .date { display: block; margin-top: 8px; font-size: 0.9em; color: #aaa; }
     </style>
 </head>
 <body>
@@ -58,11 +36,12 @@
     </header>
     
     <main class="articles">
-        
+        {% for post in site.posts %}
         <article class="article-item">
-            <a href="article2.html" class="article-title">二歩目</a>
-            <span class="date">2026,5,11(月) AM1</span>
+            <a href="{{ site.baseurl }}{{ post.url }}" class="article-title">{{ post.title }}</a>
+            <span class="date">{{ post.date | date: "%Y,%-m,%-d %p%-I" }}</span>
         </article>
+        {% endfor %}
         </main>
 </body>
 </html>

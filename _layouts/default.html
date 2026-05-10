@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - 野山</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 60px;
+            color: #58a6ff;
+            text-decoration: none;
+        }
+        /* 自動改行を有効にする設定 */
+        .content {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article class="content">
+            {{ content }}
+        </article>
+    </main>
+    <a href="/myBlog/" class="back-link">←戻る</a>
+</body>
+</html>
